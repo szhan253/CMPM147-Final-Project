@@ -40,6 +40,7 @@ let clicks = {};
 function p3_tileClicked(i, j) {
   let key = [i, j];
   clicks[key] = 1 + (clicks[key] | 0);
+  console.log(i, j);
 }
 
 function p3_drawBefore() {}
@@ -79,7 +80,7 @@ function p3_drawSelectedTile(i, j) {
 
   noStroke();
   fill(0);
-  text("tile " + [i, j], 0, 0);
+  text("(" + [i, j] + ")", 0, 0);
 }
 
 function p3_drawAfter() {}
