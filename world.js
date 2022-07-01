@@ -64,9 +64,9 @@ function p3_drawTile(i, j) {
   if(rand < 0.33){
     drawGrass(i, j);
   }else if(rand < 0.66 && rand >= 0.33){
-    drawRock();
-  }else{
     drawBlock();
+  }else{  
+    drawRock();
   }
 
   let n = clicks[[i, j]] | 0;
@@ -100,19 +100,31 @@ function p3_drawSelectedTile(i, j) {
 function p3_drawAfter() {}
 
 function drawGrass(i, j){
-  fill(138, 163, 43);
+  fill(182, 218, 76);
   noStroke();
   rect(0, 0, th, tw);
 }
 
 function drawRock(){
-  fill("#AACAF5");
+  fill(203,162,125);
   noStroke();
   rect(0, 0, th, tw);
+
+  //rock
+  fill(139, 149, 146);
+  beginShape();
+  vertex(th/7, tw/7);
+  vertex(th/7*5, tw/5);
+  vertex(th/9*8, tw/7*5);
+  vertex(0, tw/7*5);
+  endShape(CLOSE);
 }
 
 function drawBlock(){
-  fill("#9F77FF");
+  //background
+  fill(203,162,125);
   noStroke();
   rect(0, 0, th, tw);
+
+  
 }
