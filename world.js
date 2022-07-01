@@ -113,11 +113,19 @@ function drawRock(){
   //rock
   fill(139, 149, 146);
   beginShape();
-  vertex(th/7, tw/7);
-  vertex(th/7*5, tw/5);
+  vertex(th/7, tw/3);
+  vertex(th/7*2, tw/5);
+  vertex(th/7*3, tw/6);
+  vertex(th/7*4, tw/6);
+  vertex(th/7*5, tw/4);
   vertex(th/9*8, tw/7*5);
   vertex(0, tw/7*5);
+  stroke(20);
   endShape(CLOSE);
+
+  line(th/4, tw/5*2, th/7*3, tw/3*2);
+  stroke(127);
+  
 }
 
 function drawBlock(){
