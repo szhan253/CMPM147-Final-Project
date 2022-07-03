@@ -3,7 +3,7 @@
 Credit: Adam Smith/Isaac Karth 
 Edited by: Asiiah Song
 
-###Playable Link
+### Playable Link
 ```
 https://szhan253.github.io/CMPM147-P3/
 ```
