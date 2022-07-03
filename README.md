@@ -6,7 +6,7 @@ I am trying to use code to generate a random garden map. It was hard to draw som
 
 ### Playable Link
 ```
-`https://szhan253.github.io/CMPM147-P3/`
+https://szhan253.github.io/CMPM147-P3/
 ```
 
 Credit: Siyi Zhang  
