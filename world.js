@@ -65,7 +65,7 @@ function p3_drawTile(i, j) {
   let n = clicks[[i, j]] | 0;
   if (n % 2 == 1) {
     //clicked circle's color
-    drawClick();
+    drawClick(i, j);
   }
 
   pop();
@@ -174,7 +174,13 @@ function drawBlock(){
   circle(th/9*7, tw/3, 1);
 }
 
-function drawClick(){
+function drawClick(i, j){
+  if(noise(i, j) >= 0.33){
+    fill(203,162,125);
+    noStroke();
+    rect(0, 0, th, tw);
+  }
+
   stroke(241, 228, 247);
   fill(241, 228, 247);
   circle(th/2, tw/4, 6);
