@@ -10,6 +10,17 @@ let tile_rows;
 let camera_velocity;
 let camera_offset;
 
+let tile = "";
+let rock;
+let box;
+let heartBox;
+
+function preload(){
+  rock = loadImage('assets/Rock.png');
+  box = loadImage('assets/UnopenBox.png');
+  heartBox = loadImage('assets/HeartBox.png');
+}
+
 function setup() {
   camera_offset = new p5.Vector(0, 0);
   camera_velocity = new p5.Vector(0, 0);

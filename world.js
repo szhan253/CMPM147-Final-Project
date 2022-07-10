@@ -57,7 +57,7 @@ function p3_drawTile(i, j) {
   if(rand < 0.33){
     drawGrass(i, j);
   }else if(rand < 0.66 && rand >= 0.33){
-    drawBlock();
+    drawBlock(i, j);
   }else{  
     drawRock();
   }
@@ -132,6 +132,8 @@ function drawGrass(i, j){
     ellipse(th/8*5, tw/5, th/4, tw/3);
     ellipse(th/8*7, tw/5, th/4, tw/3);
   }
+
+  tile = "";
 }
 
 function drawRock(){
@@ -140,55 +142,51 @@ function drawRock(){
   rect(0, 0, th, tw);
 
   //rock
-  fill(139, 149, 146);
-  beginShape();
-  vertex(th/7, tw/3);
-  vertex(th/7*2, tw/5);
-  vertex(th/7*3, tw/6);
-  vertex(th/7*4, tw/6);
-  vertex(th/7*5, tw/4);
-  vertex(th/9*8, tw/7*5);
-  vertex(th/11, tw/7*5);
-  stroke(20);
-  endShape(CLOSE);
+  image(rock, 0, 0, th, tw);
 
-  line(th/2, tw/7*2, th/7*3, tw/7*3);
-  line(th/6, tw/5*3, th/7*3, tw/7*3);
-  line(th/3*2, tw/5*3, th/7*3, tw/7*3);
-  stroke(127);
+  //declare tile type
+  tile = "rock";
   
 }
 
-function drawBlock(){
+function drawBlock(i,j){
   //background
   fill(203,162,125);
   noStroke();
   rect(0, 0, th, tw);
 
-  //dots
-  stroke(229, 240, 139);
-  circle(th/3, tw/3, 1);
-  circle(th/5*2, tw/9*5, 1);
-  circle(th/7*4, tw/5, 1);
-  circle(th/7*5, tw/7*4, 1);
-  circle(th/9*7, tw/3, 1);
+  //box
+  if(noise(i, j) < 0.48 && noise(i, j) > 0.46){
+    image(box, 0, 0, th, tw);
+
+    //declare tile type
+    tile = "box";
+  }else{
+    tile = "";
+  }
+  
 }
 
 function drawClick(i, j){
-  if(noise(i,j) >= 0.33){
-    fill(203,162,125);
-    noStroke();
-    rect(0, 0, th, tw);
-  }
+  // // fill background color again
+  // if(noise(i,j) >= 0.33){
+  //   fill(203,162,125);
+  //   noStroke();
+  //   rect(0, 0, th, tw);
+  // }
 
-  stroke(241, 228, 247);
-  fill(241, 228, 247);
-  circle(th/2, tw/4, 6);
-  circle(th/7*2, tw/7*3, 6);
-  circle(th/7*5, tw/7*3, 6);
-  circle(th/11*4, tw/7*5, 6);
-  circle(th/11*7, tw/7*5, 6);
-  stroke(246, 166, 3);
-  fill(246, 166, 3);
-  circle(th/2, tw/2, 6);
+  //if clicked on box
+  if(tile == "box"){
+    let rand = noise(i, j);
+    // console.log(rand);
+    // console.log(tile);
+    // console.log("box clicked");
+    
+    if(rand > 0.47){
+      image(heartBox, 0, 0, th, tw);
+      // console.log("heart box");
+    }else{
+      // console.log("other box");
+    }
+  }
 }
