@@ -10,6 +10,10 @@ let tile_rows;
 let camera_velocity;
 let camera_offset;
 
+let randNum;
+// let rand;
+let pow = 100;
+
 let tile = "";
 let rock;
 let box;
@@ -55,6 +59,9 @@ function setup() {
   createP("Arrow keys scroll. Clicking changes tiles.").parent("container");
 
   rebuildWorld(input.value());
+
+  //generate random seed using for the current project
+  randNum = random(Number.MAX_SAFE_INTEGER);
 }
 
 function rebuildWorld(key) {

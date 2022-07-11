@@ -61,7 +61,7 @@ function p3_drawTile(i, j) {
   }else if(rand <= 0.51 && rand > 0.40){  
     drawGrass();
   }else if(rand <= 0.68 && rand > 0.51){
-    drawSand();
+    drawSand(rand);
   }else if(rand <= 0.85 && rand > 0.68){
     drawSnow();
   }else{
@@ -110,10 +110,17 @@ function drawLava(){
   tile = "lava";
 }
 
-function drawSand(){
+function drawSand(noiseVal){
+  // sand tile
   image(sand, 0, 0, th, tw);
-  
-  tile = "sand";
+
+  // draw box
+  noiseVal = int(noiseVal * pow);
+  if(noiseVal % 7 == 0){
+    drawBox();
+  }else{
+    tile = "sand";
+  }
 }
 
 function drawSnow(){
@@ -140,44 +147,30 @@ function drawRock(){
   
 }
 
-function drawBlock(i,j){
-  //background
-  fill(203,162,125);
-  noStroke();
-  rect(0, 0, th, tw);
+function drawBox(){
+  image(box, 0, 0, th, tw);
 
-  //box
-  if(noise(i, j) < 0.48 && noise(i, j) > 0.46){
-    image(box, 0, 0, th, tw);
+  //declare tile type
+  tile = "box";
+}
 
-    //declare tile type
-    tile = "box";
-  }else{
-    tile = "";
-  }
-  
+function drawHeartBox(){
+  image(heartBox, 0, 0, th, tw);
+
+  tile = "heartBox";
 }
 
 function drawClick(i, j){
-  // // fill background color again
-  // if(noise(i,j) >= 0.33){
-  //   fill(203,162,125);
-  //   noStroke();
-  //   rect(0, 0, th, tw);
-  // }
+  let rand = noise(i, j);
+  let temp;
 
   //if clicked on box
   if(tile == "box"){
-    let rand = noise(i, j);
-    // console.log(rand);
-    // console.log(tile);
-    // console.log("box clicked");
-    
-    if(rand > 0.47){
-      image(heartBox, 0, 0, th, tw);
-      // console.log("heart box");
-    }else{
-      // console.log("other box");
+    temp = int(rand * pow * 10);
+    console.log(temp);
+
+    if(temp % 4 == 0){
+      drawHeartBox();
     }
   }
 }
