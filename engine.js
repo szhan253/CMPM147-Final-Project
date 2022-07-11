@@ -14,11 +14,21 @@ let tile = "";
 let rock;
 let box;
 let heartBox;
+let grass;
+let lava;
+let sand;
+let snow;
+let water;
 
 function preload(){
   rock = loadImage('assets/Rock.png');
   box = loadImage('assets/UnopenBox.png');
   heartBox = loadImage('assets/HeartBox.png');
+  grass = loadImage('assets/grass.png');
+  lava = loadImage('assets/lava.png');
+  sand = loadImage('assets/sand.png');
+  snow = loadImage('assets/snow.png');
+  water = loadImage('assets/water.png');
 }
 
 function setup() {
