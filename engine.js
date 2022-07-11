@@ -15,20 +15,13 @@ let camera_offset;
 let randNum;
 // let rand;
 let pow = 100;
-
+let AutoTileNum = 5
 let tile = "";
 
 //image
-let rock;
-let grass;
-let lava;
-let sand;
-let snow;
-let water;
+let rock, grass, lava, sand, snow, water;
 
-let box;
-let heartBox;
-let autoTileRock;
+let box, heartBox, autoTileRock;
 
 //sound
 let heartBoxSound;

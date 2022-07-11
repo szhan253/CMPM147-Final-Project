@@ -141,13 +141,34 @@ function drawWater(i,j){
   let randU = noise(i, j-1);
   let randD = noise(i, j+1);
 
-  if(randL <= 0.85 && randL > 0.40 && randL <= 0.34){
-    // for(let y = 0; y < tw; y+=tw/5){
-    //   drawAutoRock(0, y);
-    // }
-    console.log("in autotile");
-    drawAutoRock();
+  //when left tile is not water
+  if((randL <= 0.85 && randL > 0.40) || randL <= 0.34){
+    for(let y = 0; y < tw; y+=tw/AutoTileNum){
+      drawAutoRock(0, y);
+    }
+    // console.log("in autotile");
+    // drawAutoRock();
   }
+  //when right tile is not water
+  if((randR <= 0.85 && randR > 0.40) || randR <= 0.34){
+    for(let y = 0; y < tw; y+=tw/AutoTileNum){
+      drawAutoRock(th/AutoTileNum*(AutoTileNum-1), y);
+    }
+  }
+  //when up tile is not water
+  if((randU <= 0.85 && randU > 0.40) || randU <= 0.34){
+    for(let x = 0; x < th; x+=th/AutoTileNum){
+      drawAutoRock(x, 0);
+    }
+  }
+  //when down tile is not water
+  if((randD <= 0.85 && randD > 0.40) || randD <= 0.34){
+    for(let x = 0; x < th; x+=th/AutoTileNum){
+      drawAutoRock(x, tw/AutoTileNum*(AutoTileNum-1));
+    }
+  }
+
+  // console.log(noise(i,j));
   
 }
 
@@ -164,8 +185,8 @@ function drawRock(){
 }
 
 function drawAutoRock(x,y){
-  // image(autoTileRock, x, y, th/5, tw/5);
-  image(autoTileRock, 0, 0, th, tw);
+  image(autoTileRock, x, y, th/AutoTileNum, tw/AutoTileNum);
+  // image(autoTileRock, 0, 0, th, tw);
 }
 
 function drawBox(){
@@ -195,4 +216,6 @@ function drawClick(i, j){
       drawHeartBox();
     }
   }
+
+  // console.log(noise(i,j));
 }
