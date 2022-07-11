@@ -3,6 +3,7 @@
 /* global p5 */
 /* exported preload, setup, draw, mouseClicked */
 
+// given
 let tile_height;
 let tile_width;
 let tile_columns;
@@ -10,29 +11,44 @@ let tile_rows;
 let camera_velocity;
 let camera_offset;
 
+
 let randNum;
 // let rand;
 let pow = 100;
 
 let tile = "";
+
+//image
 let rock;
-let box;
-let heartBox;
 let grass;
 let lava;
 let sand;
 let snow;
 let water;
 
+let box;
+let heartBox;
+let autoTileRock;
+
+//sound
+let heartBoxSound;
+
 function preload(){
+  // tile load
   rock = loadImage('assets/Rock.png');
-  box = loadImage('assets/UnopenBox.png');
-  heartBox = loadImage('assets/HeartBox.png');
   grass = loadImage('assets/grass.png');
   lava = loadImage('assets/lava.png');
   sand = loadImage('assets/sand.png');
   snow = loadImage('assets/snow.png');
   water = loadImage('assets/water.png');
+
+  // image load
+  box = loadImage('assets/UnopenBox.png');
+  heartBox = loadImage('assets/HeartBox.png');
+  autoTileRock = loadImage('assets/autoTileRock.png');
+
+  //sound load
+
 }
 
 function setup() {

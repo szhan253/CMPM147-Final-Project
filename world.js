@@ -65,7 +65,7 @@ function p3_drawTile(i, j) {
   }else if(rand <= 0.85 && rand > 0.68){
     drawSnow();
   }else{
-    drawWater();
+    drawWater(i,j);
   }
 
   let n = clicks[[i, j]] | 0;
@@ -129,10 +129,26 @@ function drawSnow(){
   tile = "snow";
 }
 
-function drawWater(){
+function drawWater(i,j){
+  // console.log("drawing water");
   image(water, 0, 0, th, tw);
 
   tile = "water";
+
+  // autotile
+  let randL = noise(i-1, j);
+  let randR = noise(i+1, j);
+  let randU = noise(i, j-1);
+  let randD = noise(i, j+1);
+
+  if(randL <= 0.85 && randL > 0.40 && randL <= 0.34){
+    // for(let y = 0; y < tw; y+=tw/5){
+    //   drawAutoRock(0, y);
+    // }
+    console.log("in autotile");
+    drawAutoRock();
+  }
+  
 }
 
 
@@ -145,6 +161,11 @@ function drawRock(){
   //declare tile type
   tile = "rock";
   
+}
+
+function drawAutoRock(x,y){
+  // image(autoTileRock, x, y, th/5, tw/5);
+  image(autoTileRock, 0, 0, th, tw);
 }
 
 function drawBox(){
@@ -167,8 +188,9 @@ function drawClick(i, j){
   //if clicked on box
   if(tile == "box"){
     temp = int(rand * pow * 10);
-    console.log(temp);
+    // console.log(temp);
 
+    // boxes contains heart
     if(temp % 4 == 0){
       drawHeartBox();
     }
