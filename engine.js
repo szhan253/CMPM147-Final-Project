@@ -45,6 +45,9 @@ function preload(){
 }
 
 function setup() {
+  //generate random seed using for the current project
+  randNum = random(Number.MAX_SAFE_INTEGER);
+
   camera_offset = new p5.Vector(0, 0);
   camera_velocity = new p5.Vector(0, 0);
 
@@ -59,7 +62,8 @@ function setup() {
   label.html("World key: ");
   label.parent("container");
 
-  let input = createInput("cm147");
+  // let input = createInput("cm147");
+  let input = createInput(randNum);
   input.parent(label);
   input.input(() => {
     rebuildWorld(input.value());
@@ -69,8 +73,6 @@ function setup() {
 
   rebuildWorld(input.value());
 
-  //generate random seed using for the current project
-  randNum = random(Number.MAX_SAFE_INTEGER);
 }
 
 function rebuildWorld(key) {
