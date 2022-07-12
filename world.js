@@ -168,7 +168,7 @@ function drawWater(i,j){
     }
   }
 
-  // console.log(noise(i,j));
+  console.log(noise(i,j));
   
 }
 
