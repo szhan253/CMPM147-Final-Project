@@ -196,10 +196,22 @@ function drawBox(){
   tile = "box";
 }
 
+function drawEmptyBox(){
+  image(emptyBox, 0, 0, th, tw);
+
+  tile = "emptyBox";
+}
+
 function drawHeartBox(){
   image(heartBox, 0, 0, th, tw);
 
   tile = "heartBox";
+}
+
+function drawHealthLose(){
+  image(healthLose, 0, 0, th, tw);
+
+  tile = "healthLose";
 }
 
 function drawClick(i, j){
@@ -214,6 +226,12 @@ function drawClick(i, j){
     // boxes contains heart
     if(temp % 4 == 0){
       drawHeartBox();
+    }
+    if(temp % 4 == 1){
+      drawHealthLose();
+    }
+    if(temp % 4 == 2){
+      drawEmptyBox();
     }
   }
 
