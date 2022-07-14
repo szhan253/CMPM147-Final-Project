@@ -21,7 +21,7 @@ let tile = "";
 //image
 let rock, grass, lava, sand, snow, water;
 
-let box, heartBox, autoTileRock,heart,heart_empty;
+let box, emptyBox, heartBox, healthLose, autoTileRock,heart,heart_empty;
 
 //sound
 let heartBoxSound;
@@ -37,7 +37,9 @@ function preload(){
 
   // image load
   box = loadImage('assets/UnopenBox.png');
+  emptyBox = loadImage('assets/emptyBox.png');
   heartBox = loadImage('assets/HeartBox.png');
+  healthLose = loadImage('assets/healthLose.png');
   autoTileRock = loadImage('assets/autoTileRock.png');
   heart = loadImage('assets/heart.png');
   heart_empty = loadImage('assets/heart_empty.png');
