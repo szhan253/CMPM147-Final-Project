@@ -20,6 +20,9 @@ function p3_setup() {}
 
 let worldSeed;
 
+let current_health = 3;
+const max_health = 3;
+
 function p3_worldKeyChanged(key) {
   worldSeed = XXH.h32(key, 0);
   noiseSeed(worldSeed);
@@ -40,7 +43,7 @@ let clicks = {};
 function p3_tileClicked(i, j) {
   let key = [i, j];
   clicks[key] = 1 + (clicks[key] | 0);
-  console.log(i, j);
+  // console.log(i, j);
 }
 
 function p3_drawBefore() {}
@@ -168,7 +171,7 @@ function drawWater(i,j){
     }
   }
 
-  console.log(noise(i,j));
+  // console.log(noise(i,j));
   
 }
 
@@ -202,6 +205,19 @@ function drawHeartBox(){
   tile = "heartBox";
 }
 
+function drawHeart(){
+  for(var i = 1; i<=current_health; i++){
+    image(heart,i*100,100);
+  }
+  for(var i = 0; i<max_health-current_health; i++){
+    image(heart_empty,300 - i*100,100);
+  }
+}
+
+function decreaseHealth(){
+  current_health = max_health-1;
+}
+
 function drawClick(i, j){
   let rand = noise(i, j);
   let temp;
@@ -209,6 +225,9 @@ function drawClick(i, j){
   //if clicked on box
   if(tile == "box"){
     temp = int(rand * pow * 10);
+    // console.log(health);
+    // decreaseHealth();
+    console.log("decrease");
     // console.log(temp);
 
     // boxes contains heart

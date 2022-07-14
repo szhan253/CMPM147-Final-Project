@@ -21,7 +21,7 @@ let tile = "";
 //image
 let rock, grass, lava, sand, snow, water;
 
-let box, heartBox, autoTileRock;
+let box, heartBox, autoTileRock,heart,heart_empty;
 
 //sound
 let heartBoxSound;
@@ -39,6 +39,8 @@ function preload(){
   box = loadImage('assets/UnopenBox.png');
   heartBox = loadImage('assets/HeartBox.png');
   autoTileRock = loadImage('assets/autoTileRock.png');
+  heart = loadImage('assets/heart.png');
+  heart_empty = loadImage('assets/heart_empty.png');
 
   //sound load
 
@@ -51,7 +53,7 @@ function setup() {
   camera_offset = new p5.Vector(0, 0);
   camera_velocity = new p5.Vector(0, 0);
 
-  let canvas = createCanvas(800, 400);
+  let canvas = createCanvas(1200, 800);
   canvas.parent("container");
 
   if (window.p3_setup) {
@@ -136,6 +138,8 @@ function draw() {
   }
 
   describeMouseTile(world_pos, [camera_offset.x, camera_offset.y]);
+
+  drawHeart(current_health);
 
   if (window.p3_drawAfter) {
     window.p3_drawAfter();
