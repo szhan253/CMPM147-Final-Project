@@ -30,10 +30,10 @@ function p3_worldKeyChanged(key) {
 }
 
 function p3_tileWidth() {
-  return 32;
+  return 40;
 }
 function p3_tileHeight() {
-  return 32;
+  return 40;
 }
 
 let [tw, th] = [p3_tileWidth(), p3_tileHeight()];
@@ -177,7 +177,8 @@ function drawWater(i,j){
 
 
 function drawRock(){
-  drawSand();
+  //background
+  image(sand, 0, 0, th, tw);
 
   //rock
   image(rock, 0, 0, th, tw);
