@@ -24,6 +24,7 @@ let current_health = 3;
 const max_health = 3;
 
 var click = false;
+var is_bomb = false;
 
 function p3_worldKeyChanged(key) {
   worldSeed = XXH.h32(key, 0);
@@ -237,6 +238,7 @@ function drawHealthLose(){
 function drawClick(i, j){
   let rand = noise(i, j);
   let temp;
+  is_bomb = false;
 
   //if clicked on box
   if(tile == "box"){
@@ -247,7 +249,7 @@ function drawClick(i, j){
     // console.log(temp);
 
     // boxes contains heart
-    console.log(click);
+    console.log(is_bomb);
     if(temp % 4 == 0){
       drawHeartBox();
     }
@@ -256,10 +258,12 @@ function drawClick(i, j){
       if(click){
         decreaseHealth();
         click = false;
+        is_bomb = false;
       }
     }
     else if(temp % 4 == 2){
       drawEmptyBox();
+      is_bomb = false;
     }
   }
 
