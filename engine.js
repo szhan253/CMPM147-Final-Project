@@ -193,6 +193,7 @@ function mouseClicked() {
 
   if (window.p3_tileClicked) {
     window.p3_tileClicked(world_pos[0], world_pos[1]);
+    click = true;
   }
   return false;
 }
