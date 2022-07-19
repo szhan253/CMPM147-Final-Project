@@ -229,10 +229,12 @@ function decreaseHealth(){
 }
 
 function drawHealthLose(){
+  image(sand, 0, 0, th, tw);
   image(healthLose, 0, 0, th, tw);
 
   tile = "healthLose";
 }
+
 
 
 function drawClick(i, j){
@@ -243,6 +245,7 @@ function drawClick(i, j){
   //if clicked on box
   if(tile == "box"){
     temp = int(rand * pow * 10);
+    let t2 = int(rand * pow * pow);
     // console.log(health);
     // decreaseHealth();
     // console.log("decrease");
@@ -264,6 +267,23 @@ function drawClick(i, j){
     else if(temp % 4 == 2){
       drawEmptyBox();
       is_bomb = false;
+    }else{
+      image(sand, 0, 0, th, tw);
+      if(t2 % 10 == 0){
+        image(bowknot, 0, 0, th, tw);
+      }else if(t2 % 10 == 1){
+        image(cryCloud, 0, 0, th, tw);
+      }else if(t2 % 10 == 2){
+        image(paper, 0, 0, th, tw);
+      }else if(t2 % 10 == 3){
+        image(rocket, 0, 0, th, tw);
+      }else if(t2 % 10 == 4){
+        image(seed, 0, 0, th, tw);
+      }else if(t2 % 10 == 5){
+        image(star, 0, 0, th, tw);
+      }
+
+      console.log(t2);
     }
   }
 

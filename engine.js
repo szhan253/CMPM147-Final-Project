@@ -19,7 +19,7 @@ let AutoTileNum = 5
 let tile = "";
 
 //image
-let rock, grass, lava, sand, snow, water;
+let rock, grass, lava, sand, snow, water, cryCloud, rocket, star, seed, paper, bowknot;
 
 let box, emptyBox, heartBox, healthLose, autoTileRock,heart,heart_empty;
 
@@ -43,6 +43,12 @@ function preload(){
   autoTileRock = loadImage('assets/autoTileRock.png');
   heart = loadImage('assets/heart.png');
   heart_empty = loadImage('assets/heart_empty.png');
+  cryCloud = loadImage('assets/cryCloud.png');
+  rocket = loadImage('assets/rocket.png');
+  star = loadImage('assets/star.png');
+  seed = loadImage('assets/seed.png');
+  paper = loadImage('assets/paper.png');
+  bowknot = loadImage('assets/bowknot.png');
 
   //sound load
 
