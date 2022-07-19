@@ -235,6 +235,28 @@ function drawHealthLose(){
   tile = "healthLose";
 }
 
+function drawItemCollect(){
+  let temp = 60;
+  if(isBowknot){
+    image(bowknot, temp, height - temp, temp, temp);
+  }
+  if(isCloud){
+    image(cryCloud, temp*2, height - temp, temp, temp);
+  }
+  if(isPaper){
+    image(paper, temp*3, height - temp, temp, temp);
+  }
+  if(isRocket){
+    image(rocket, temp*4, height - temp, temp, temp);
+  }
+  if(isSeed){
+    image(seed, temp*5, height - temp, temp, temp);
+  }
+  if(isStar){
+    image(star, 0, height - temp, temp, temp);
+  }
+}
+
 
 
 function drawClick(i, j){
@@ -271,16 +293,22 @@ function drawClick(i, j){
       image(sand, 0, 0, th, tw);
       if(t2 % 10 == 0){
         image(bowknot, 0, 0, th, tw);
+        isBowknot = true;
       }else if(t2 % 10 == 1){
         image(cryCloud, 0, 0, th, tw);
+        isCloud = true;
       }else if(t2 % 10 == 2){
         image(paper, 0, 0, th, tw);
+        isPaper = true;
       }else if(t2 % 10 == 3){
         image(rocket, 0, 0, th, tw);
+        isRocket = true;
       }else if(t2 % 10 == 4){
         image(seed, 0, 0, th, tw);
+        isSeed = true;
       }else if(t2 % 10 == 5){
         image(star, 0, 0, th, tw);
+        isStar = true;
       }
 
       console.log(t2);

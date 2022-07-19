@@ -18,6 +18,13 @@ let pow = 100;
 let AutoTileNum = 5
 let tile = "";
 
+let isBowknot = false;
+let isCloud = false;
+let isPaper = false;
+let isRocket = false;
+let isSeed = false;
+let isStar = false;
+
 //image
 let rock, grass, lava, sand, snow, water, cryCloud, rocket, star, seed, paper, bowknot;
 
@@ -152,6 +159,8 @@ function draw() {
   if (window.p3_drawAfter) {
     window.p3_drawAfter();
   }
+
+  drawItemCollect();
 }
 
 function screenToWorld([screen_x, screen_y], [camera_x, camera_y]) {
