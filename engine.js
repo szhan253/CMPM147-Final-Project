@@ -86,7 +86,7 @@ function setup() {
     rebuildWorld(input.value());
   });
 
-  createP("Arrow keys scroll. Clicking changes tiles.").parent("container");
+  createP("Arrow keys scroll. Clicking treasure chest for collecting items.").parent("container");
 
   rebuildWorld(input.value());
 
