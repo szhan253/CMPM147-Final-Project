@@ -22,9 +22,7 @@ let worldSeed;
 
 let current_health = 3;
 const max_health = 3;
-
-var click = false;
-var is_bomb = false;
+const min_health = 0;
 
 function p3_worldKeyChanged(key) {
   worldSeed = XXH.h32(key, 0);
@@ -47,6 +45,21 @@ function p3_tileClicked(i, j) {
   let key = [i, j];
   clicks[key] = 1 + (clicks[key] | 0);
   // console.log(i, j);
+
+  let rand = noise(i,j);
+  let noiseVal = int(rand * pow);
+  let temp = int(rand * pow * 10);
+
+  if( rand <= 0.68 && rand > 0.51){ // if on sand tile
+    if( noiseVal % 7 == 0){  // if is a box
+      if( temp % 4 == 1){ // if is a bomb
+        decreaseHealth();
+      }
+      if(temp % 4 == 0){
+        increaseHealth();
+      }
+    }
+  }
 }
 
 function p3_drawBefore() {}
@@ -152,8 +165,6 @@ function drawWater(i,j){
     for(let y = 0; y < tw; y+=tw/AutoTileNum){
       drawAutoRock(0, y);
     }
-    // console.log("in autotile");
-    // drawAutoRock();
   }
   //when right tile is not water
   if((randR <= 0.85 && randR > 0.40) || randR <= 0.34){
@@ -193,7 +204,6 @@ function drawRock(){
 
 function drawAutoRock(x,y){
   image(autoTileRock, x, y, th/AutoTileNum, tw/AutoTileNum);
-  // image(autoTileRock, 0, 0, th, tw);
 }
 
 function drawBox(){
@@ -225,7 +235,15 @@ function drawHeart(){
 }
 
 function decreaseHealth(){
-  current_health = current_health-1;
+  if(current_health > min_health){
+    current_health = current_health-1;
+  }
+}
+
+function increaseHealth(){
+  if(current_health < max_health){
+    current_health += 1;
+  }
 }
 
 function drawHealthLose(){
@@ -262,16 +280,11 @@ function drawItemCollect(){
 function drawClick(i, j){
   let rand = noise(i, j);
   let temp;
-  is_bomb = false;
+  let is_bomb = false;
 
   //if clicked on box
   if(tile == "box"){
     temp = int(rand * pow * 10);
-    let t2 = int(rand * pow * pow);
-    // console.log(health);
-    // decreaseHealth();
-    // console.log("decrease");
-    // console.log(temp);
 
     // boxes contains heart
     console.log(is_bomb);
@@ -280,17 +293,12 @@ function drawClick(i, j){
     }
     else if(temp % 4 == 1){
       drawHealthLose();
-      if(click){
-        decreaseHealth();
-        click = false;
-        is_bomb = false;
-      }
     }
     else if(temp % 4 == 2){
       drawEmptyBox();
-      is_bomb = false;
     }else{
-      image(sand, 0, 0, th, tw);
+      let t2 = int(rand * pow * pow); //num using for random assign items
+      image(sand, 0, 0, th, tw); //back ground
       if(t2 % 10 == 0){
         image(bowknot, 0, 0, th, tw);
         isBowknot = true;
@@ -315,5 +323,4 @@ function drawClick(i, j){
     }
   }
 
-  // console.log(noise(i,j));
 }
