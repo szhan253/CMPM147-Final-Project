@@ -24,6 +24,9 @@ let current_health = 3;
 const max_health = 3;
 const min_health = 0;
 
+let index = 0;
+let time = 0;
+
 function p3_worldKeyChanged(key) {
   worldSeed = XXH.h32(key, 0);
   noiseSeed(worldSeed);
@@ -149,8 +152,19 @@ function drawSnow(){
 }
 
 function drawWater(i,j){
-  // console.log("drawing water");
-  image(water, 0, 0, th, tw);
+  var cell = water_map[index];
+
+  let sprite = water_move.get(cell.x, cell.y, 32,32);
+  image(sprite,0,0,th,tw);
+
+  time += .1;
+  if(time > 20){
+    index++;
+    if (index > water_map.length - 1) {
+      index = 0;
+    }
+    time = 0;
+  }
 
   tile = "water";
 

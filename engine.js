@@ -30,6 +30,15 @@ let rock, grass, lava, sand, snow, water, cryCloud, rocket, star, seed, paper, b
 
 let box, emptyBox, heartBox, healthLose, autoTileRock,heart,heart_empty;
 
+
+let water_map = [
+  {x: 0, y:0},
+  {x: 32, y:0},
+  {x: 64, y:0},
+]
+
+let water_move;
+
 //sound
 let heartBoxSound;
 
@@ -56,6 +65,9 @@ function preload(){
   seed = loadImage('assets/seed.png');
   paper = loadImage('assets/paper.png');
   bowknot = loadImage('assets/bowknot.png');
+
+  // load animation
+  water_move = loadImage('assets/water_map.png');
 
   //sound load
 
