@@ -39,7 +39,7 @@ let water_map = [
 let water_move;
 
 //sound
-let bgm, explosion, collect, clothes, rain, flipPaper;
+let bgm, explosion, collect, clothes, rain, flipPaper, sunflower, fire, shine, empty;
 
 function preload(){
   // tile load
@@ -76,8 +76,11 @@ function preload(){
   clothes = loadSound('assets/clothes.wav'); // reference: https://freesound.org/people/ZoviPoland/sounds/517725/
   rain = loadSound('assets/rain.mp3'); // reference: https://freesound.org/people/babuababua/sounds/344430/
   flipPaper = loadSound('assets/flipPaper.wav'); // reference: https://freesound.org/people/_bepis/sounds/531895/
-
-}
+  sunflower = loadSound('assets/sunflower.mp3'); // reference: https://freesound.org/people/pepotx/sounds/466620/
+  fire = loadSound('assets/fire.wav'); //reference: https://freesound.org/people/sandyrb/sounds/86295/
+  shine = loadSound('assets/shine.wav'); // reference: https://freesound.org/people/smokinghotdog/sounds/584244/
+  empty = loadSound('assets/empty.wav'); // reference: https://freesound.org/people/lartti/sounds/527580/
+} 
 
 
 function setup() {

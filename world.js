@@ -70,14 +70,16 @@ function p3_tileClicked(i, j) {
         }else if(t2 % 10 == 2){
           flipPaper.play();
         }else if(t2 % 10 == 3){
-          isRocket = true;
+          fire.play();
         }else if(t2 % 10 == 4){
-          isSeed = true;
+          sunflower.play();
         }else if(t2 % 10 == 5){
-          isStar = true;
+          shine.play();
         }else{
-         drawEmptyBox();
+          empty.play();
         }
+      }else{
+        empty.play();
       }
     }
   }
