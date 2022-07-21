@@ -57,6 +57,7 @@ function p3_tileClicked(i, j) {
     if( noiseVal % 7 == 0){  // if is a box
       if( temp % 4 == 1){ // if is a bomb
         decreaseHealth();
+        explosion.play();
       }
       if(temp % 4 == 0){
         increaseHealth();

@@ -13,7 +13,6 @@ let camera_offset;
 
 
 let randNum;
-// let rand;
 let pow = 100;
 let AutoTileNum = 5
 let tile = "";
@@ -40,7 +39,7 @@ let water_map = [
 let water_move;
 
 //sound
-let heartBoxSound;
+let explosion;
 
 function preload(){
   // tile load
@@ -70,8 +69,12 @@ function preload(){
   water_move = loadImage('assets/water_map.png');
 
   //sound load
+  soundFormats('mp3', 'ogg');
+  explosion = loadSound('assets/explosion.ogg');
+  
 
 }
+
 
 function setup() {
   //generate random seed using for the current project
@@ -103,6 +106,7 @@ function setup() {
   rebuildWorld(input.value());
 
 }
+
 
 function rebuildWorld(key) {
   if (window.p3_worldKeyChanged) {
@@ -173,6 +177,11 @@ function draw() {
   }
 
   drawItemCollect();
+
+  //reload page when health goes 0
+  if(current_health == 0){
+    window.location.reload();
+  }
 }
 
 function screenToWorld([screen_x, screen_y], [camera_x, camera_y]) {
@@ -223,3 +232,4 @@ function mouseClicked() {
   }
   return false;
 }
+
