@@ -58,9 +58,26 @@ function p3_tileClicked(i, j) {
       if( temp % 4 == 1){ // if is a bomb
         decreaseHealth();
         explosion.play();
-      }
-      if(temp % 4 == 0){
+      }else if(temp % 4 == 0){
         increaseHealth();
+        collect.play();
+      }else if(temp % 4 == 3){
+        let t2 = int(rand * pow * pow); //num using for random assign items
+        if(t2 % 10 == 0){
+          clothes.play();
+        }else if(t2 % 10 == 1){
+          rain.play();
+        }else if(t2 % 10 == 2){
+          flipPaper.play();
+        }else if(t2 % 10 == 3){
+          isRocket = true;
+        }else if(t2 % 10 == 4){
+          isSeed = true;
+        }else if(t2 % 10 == 5){
+          isStar = true;
+        }else{
+         drawEmptyBox();
+        }
       }
     }
   }
@@ -198,10 +215,7 @@ function drawWater(i,j){
     for(let x = 0; x < th; x+=th/AutoTileNum){
       drawAutoRock(x, tw/AutoTileNum*(AutoTileNum-1));
     }
-  }
-
-  // console.log(noise(i,j));
-  
+  }  
 }
 
 
@@ -295,14 +309,14 @@ function drawItemCollect(){
 function drawClick(i, j){
   let rand = noise(i, j);
   let temp;
-  let is_bomb = false;
+  // let is_bomb = false;
 
   //if clicked on box
   if(tile == "box"){
     temp = int(rand * pow * 10);
 
     // boxes contains heart
-    console.log(is_bomb);
+    // console.log(is_bomb);
     if(temp % 4 == 0){
       drawHeartBox();
     }
@@ -332,9 +346,9 @@ function drawClick(i, j){
       }else if(t2 % 10 == 5){
         image(star, 0, 0, th, tw);
         isStar = true;
+      }else{
+        drawEmptyBox();
       }
-
-      console.log(t2);
     }
   }
 

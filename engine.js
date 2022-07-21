@@ -39,7 +39,7 @@ let water_map = [
 let water_move;
 
 //sound
-let explosion;
+let bgm, explosion, collect, clothes, rain, flipPaper;
 
 function preload(){
   // tile load
@@ -69,9 +69,13 @@ function preload(){
   water_move = loadImage('assets/water_map.png');
 
   //sound load
-  soundFormats('mp3', 'ogg');
-  explosion = loadSound('assets/explosion.ogg');
-  
+  soundFormats('mp3', 'ogg', 'wav');
+  bgm = loadSound('assets/bgm.mp3'); // reference: Jimmy Lu
+  explosion = loadSound('assets/explosion.ogg'); // reference: https://freesound.org/people/derplayer/sounds/587196/
+  collect = loadSound('assets/collect.wav'); // reference: https://freesound.org/people/bradwesson/sounds/135936/
+  clothes = loadSound('assets/clothes.wav'); // reference: https://freesound.org/people/ZoviPoland/sounds/517725/
+  rain = loadSound('assets/rain.mp3'); // reference: https://freesound.org/people/babuababua/sounds/344430/
+  flipPaper = loadSound('assets/flipPaper.wav'); // reference: https://freesound.org/people/_bepis/sounds/531895/
 
 }
 
@@ -105,6 +109,7 @@ function setup() {
 
   rebuildWorld(input.value());
 
+  bgm.loop();
 }
 
 
@@ -124,7 +129,7 @@ function cameraToWorldOffset([camera_x, camera_y]) {
   return { x: Math.round(world_x), y: Math.round(world_y) };
 }
 
-function draw() {
+function draw() {  
   // Keyboard controls!
   if (keyIsDown(LEFT_ARROW)) {
     camera_velocity.x -= 1;
