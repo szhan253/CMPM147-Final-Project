@@ -7,7 +7,7 @@ https://szhan253.github.io/CMPM147-Final-Project/
 ```
 
 ### Credit
-```
+
 ##### Sound Effect References: 
 https://freesound.org/people/derplayer/sounds/587196/  
 https://freesound.org/people/bradwesson/sounds/135936/  
@@ -27,7 +27,7 @@ Tiles: Darong Li
 Item: Siyi Zhang
 ##### Animation
 Darong Li
-```
+
 
 ### Start Code Source
 ```
