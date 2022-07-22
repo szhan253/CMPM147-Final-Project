@@ -31,5 +31,7 @@ Darong Li
 ```
 https://github.com/julinas/p3-endless-scene-starter
 ```
+### Note
+For Chrome, background sound will occur after a chest is clicked. For some other browsers, it is possible that the background cannot loop successfully. Additionally, when health goes zero and the web reloads, that may take a longer time than expected.
 
 
